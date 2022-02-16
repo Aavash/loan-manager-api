@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  #######################################
+  # Database Service
+  #######################################
+  db_loan_manager:
+    container_name: "db_loan_manager"
+    build:
+        context: ./dockerfiles/database
+    image: database-service
+    env_file: "env/${ENV}.env"
+    ports:
+      - 4088:5432  
+    networks:
+        - loan-management-net
+    volumes:
+    - "db_volume:/var/lib/postgresql/data"
+
+networks:
+  loan-management-net:
+      name: loan-management-network
+      ipam:
+          driver: default
+          config:
+              - subnet: "192.168.0.0/24"
+              - subnet: "4001:5984:5989::/64"
+
+
+
+
+volumes:
+  db_volume:

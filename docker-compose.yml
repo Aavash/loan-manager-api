@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+    #######################################
+    # Loan Management Service
+    #######################################
+    api-service:
+        container_name: loan-api-service
+        env_file: "env/${ENV}.env"
+        build:
+            context: "."
+        image: loan-api-service
+        networks:
+        - loan-management-net
+        ports:
+        - "4099:8000"
+        volumes:
+            - .:/usr/src/app
+            - ./media:/usr/src/app/media
+#            - ./node_modules:/usr/src/app/node_modules
+        restart: unless-stopped
+
+networks:
+  loan-management-net:
+      name: loan-management-network
+      ipam:
+          driver: default
+          config:
+              - subnet: "192.168.0.0/24"
+              - subnet: "4001:5984:5989::/64"
