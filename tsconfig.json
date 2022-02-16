@@ -11,7 +11,24 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@common/*": [
+        "./src/common/*"
+      ],
+      "@modules/*": [
+        "./src/modules/*"
+      ],
+      "@config/*": [
+        "./src/config/*"
+      ],
+      "@entities": [
+        "./src/entities/index"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ]
+    }
   },
   "exclude": [
     "node_modules",

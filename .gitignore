@@ -7,6 +7,7 @@
 env/dev.env
 env/prod.env
 .eslintcache
+package-lock.json
 
 # Logs
 logs

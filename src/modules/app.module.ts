@@ -1,6 +1,6 @@
 import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { LoggerMiddleware } from 'src/common/middlewares/logger.middleware';
+import { LoggerMiddleware } from '@common/middlewares/logger.middleware';
 import dbConfig from 'src/config/typeorm.config';
 import { LoanModule } from './loan/loan.module';
 import { UserModule } from './user/user.module';
