@@ -1,4 +1,4 @@
-FROM node:12.17.0-alpine
+FROM node:16.13.1-alpine
 
 WORKDIR /usr/src/app
 #RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
@@ -8,7 +8,7 @@ COPY package.json ./
 COPY ./dist .
 COPY ./service-entrypoint.sh /service-entrypoint.sh
 
-RUN yarn install --production=true
+RUN npm install
 RUN ls -la
 
 RUN chmod +x /service-entrypoint.sh

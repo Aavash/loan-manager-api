@@ -10,8 +10,8 @@ services:
         build:
             context: "."
         image: loan-api-service
-        networks:
-        - loan-management-net
+        # networks:
+        # - loan-management-net
         ports:
         - "4099:8000"
         volumes:
